@@ -1,1 +1,41 @@
 
+.tooltip-container {
+    position: relative;
+    display: inline-block;
+    padding: 30px;
+    margin: 30px;
+    font-weight: bold;
+   
+  }
+  
+  .tooltiptext {
+    visibility: hidden;
+    height: 50px;
+    width: 150px;
+    background-color: rgb(255,0,0);
+    color: rgb(255,255,255);
+    text-align: center;
+    border-radius: 4px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: 70%; /* Position the tooltip above the text */
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  
+  .tooltip-container:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+  }
+  .tooltip{
+    padding: 10px;
+    font-weight: bold;
+
+  }
+  .tooltip1{
+    font-weight: normal;
+  }
+  
