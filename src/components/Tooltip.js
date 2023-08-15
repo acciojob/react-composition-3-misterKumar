@@ -1,22 +1,29 @@
 import React, { useState } from 'react';
-import '../styles/App.css';
-const ToolTip = ({ text, children }) => {
-  const [showTooltip, setShowTooltip] = useState(false);
+import "../styles/App.css";
+
+const Tooltip = ({ text, children, isBold }) => {
+  const [isTooltipVisible, setIsTooltipVisible] = useState(false);
 
   const handleMouseEnter = () => {
-    setShowTooltip(true);
+    setIsTooltipVisible(true);
   };
 
   const handleMouseLeave = () => {
-    setShowTooltip(false);
+    setIsTooltipVisible(false);
   };
 
   return (
-    <div className="tooltip-container" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-      {children}
-      {showTooltip && <div className="tooltiptext">{text}</div>}
+    <div className="tooltip-container">
+      <div
+        className={`tooltip ${isTooltipVisible ? 'active' : ''}`}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+      >
+        {children}
+        <p className={`tooltiptext ${isBold ? 'bold' : 'normal'}`}>{text}</p>
+      </div>
     </div>
   );
 };
 
-export default ToolTip;
+export default Tooltip;
