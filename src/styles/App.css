@@ -1,25 +1,4 @@
-.tooltip{
-  /* width: fit-content; */
- cursor: pointer;
- position: relative;
-}
-
-.tooltip-text{
-  width: fit-content;
-  padding: 1rem;
-  background-color: crimson;
-  color: white;
-  font-size: 1rem;
-  display: none;
-  position: absolute;
-  z-index: 22;
-  left: 7%;
-  top: 90%;
-  border-radius: 0 10px 10px 10px;
-}
-.child{
-  padding:1rem;
-  width:fit-content;
-  position: relative;
-  z-index:11;
+div:first-child{
+  margin-bottom: 10%;
+  margin-top: 10%;
 }

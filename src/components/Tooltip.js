@@ -1,17 +1,13 @@
-import React, { useState } from 'react'
+import React,{useState} from 'react'
 
-const Tooltip = ({text,children}) => {
-
-    const [show,setShow]=useState(false);
-    
-  return (
-   <>
-   <div className='tooltip'>
-   <div className='tooltip-text' style={{display:show?'block':'none'}}>{text}</div>
-   <div className='child'  onMouseEnter={()=>setShow(true)} onMouseLeave={()=>setShow(false)}>{children}</div>
-   </div>
-   </>
-  )
+let ToolTip= (props)=>{
+    let [hover,Sethover]=useState({display: 'none'})
+return(
+    <div>
+       <h2 className='tooltiptext' style={hover}><div>{props.text}</div></h2>
+        <p className='tooltip'><div onMouseEnter={()=>Sethover({display: 'block'})} onMouseLeave={()=>Sethover({display: 'none'})}>{props.children}</div></p>
+    </div>
+)
 }
 
-export default Tooltip
+export default ToolTip
