@@ -1,14 +1,40 @@
-import React from "react";
+import React,{useState} from "react";
 import './../styles/App.css';
-import ToolTip from './ToolTip.js'
 
 const App = () => {
   return (
     <div>
-        <ToolTip text={'This is a tooltip'} children={'Hover over me'}/>
-        <ToolTip text={'This is another tooltip'} children={'Hover over me to see another tooltip'}/>
+        <Tooltip text="This is a tooltip">
+          <h2>Hover over me</h2>
+        </Tooltip>
+
+        <Tooltip text="This is another tooltip">
+          <p>Hover over me to see another tooltip</p>
+        </Tooltip>
+              
     </div>
   )
 }
+
+const Tooltip = ({ text, children }) => {
+  const [showTooltip, setShowTooltip] = useState(false);
+
+  const handleMouseEnter = () => {
+    setShowTooltip(true);
+  };
+
+  const handleMouseLeave = () => {
+    setShowTooltip(false);
+  };
+
+  return (
+    <div onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+      {children}
+      {
+        showTooltip && <button>{text}</button>
+      }
+    </div>
+  );
+};
 
 export default App
